@@ -46,6 +46,7 @@ public class Home extends HttpServlet {
 		
 		try {
 			getConnection();
+			System.out.println("test");
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
