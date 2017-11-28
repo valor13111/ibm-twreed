@@ -26,7 +26,6 @@ public class Home extends HttpServlet {
      */
     public Home() {
         super();
-        // TODO Auto-generated constructor stub
     }
 
 	/**
@@ -34,7 +33,13 @@ public class Home extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		request.getRequestDispatcher("/WEB-INF/views/index.jsp").forward(request, response);		
+		request.getRequestDispatcher("/WEB-INF/views/index.jsp").forward(request, response);	
+		
+		try {
+			getConnection();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 	}
 
 	/**
@@ -46,9 +51,7 @@ public class Home extends HttpServlet {
 		
 		try {
 			getConnection();
-			System.out.println("test");
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 
@@ -62,15 +65,15 @@ public class Home extends HttpServlet {
 	 */
 	protected void getConnection() throws SQLException {
 		try {
-			Class.forName(driver.getURL());
+			Class.forName(driver.getDRIVER());
 			conn = DriverManager.getConnection(
 					driver.getURL() + driver.getDATABASE_NAME(),
 					driver.getUSERNAME(),
 					driver.getPASSWORD());
 			System.out.println("CONNECTED!");
 			
+			conn.close();
 		} catch (ClassNotFoundException e) {
-			// TODO Auto-generated catch block
 			System.out.println("NOT CONNECTED!");
 			e.printStackTrace();
 		}
