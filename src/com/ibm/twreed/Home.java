@@ -1,9 +1,13 @@
 package com.ibm.twreed;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -32,50 +36,13 @@ public class Home extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		request.getRequestDispatcher("/WEB-INF/views/index.jsp").forward(request, response);	
-		
-		try {
-			getConnection();
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
+		request.getRequestDispatcher("/WEB-INF/views/index.jsp").forward(request, response);
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String theId = request.getParameter("id");
-		request.setAttribute("id", theId);
-		
-		try {
-			getConnection();
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-
-		request.getRequestDispatcher("/WEB-INF/views/hello.jsp").forward(request, response);
-	}
-	
-	/**
-	 * Establishes connection to database.
-	 * 
-	 * @throws SQLException 
-	 */
-	protected void getConnection() throws SQLException {
-		try {
-			Class.forName(driver.getDRIVER());
-			conn = DriverManager.getConnection(
-					driver.getURL() + driver.getDATABASE_NAME(),
-					driver.getUSERNAME(),
-					driver.getPASSWORD());
-			System.out.println("CONNECTED!");
-			
-			conn.close();
-		} catch (ClassNotFoundException e) {
-			System.out.println("NOT CONNECTED!");
-			e.printStackTrace();
-		}
+		// TODO
 	}
 }
