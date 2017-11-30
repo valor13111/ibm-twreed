@@ -12,3 +12,5 @@
 
 ### I had issues in beginning with class path, the mysql-connector is located under Referenced Libraries, and was included as a separate file
 ### just in case that didn't work.  Had to go to 'Deploy Assembly' and add the connector before it would establish connection.
+
+## I used bootstrap CDN along with the project.  The web app can add/delete/list/search by id student.
