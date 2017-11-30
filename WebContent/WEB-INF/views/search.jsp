@@ -5,9 +5,10 @@
 	<jsp:include page="../include/header.jsp" /> 
 <body>
 
-<h1>HIII</h1>
+<h2 class="text-center">Students Information</h2>
+
 <form method="POST" action="Search">
-	<div class="container">
+	<div class="container text-center">
 		<input type="text" placeholder="Enter student first name" name="name" />
 		<input type="submit" value="Submit" class="btn btn-primary" name="submit" />
 	</div>

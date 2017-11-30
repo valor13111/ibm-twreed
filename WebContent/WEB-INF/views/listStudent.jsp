@@ -6,6 +6,8 @@
 	<jsp:include page="../include/header.jsp" /> 
 <body>
 
+<h2 align="center">List Database: Student List</h2>
+
 <div class="container">
 	<div class="table-responsive">  
 		<table class="table">

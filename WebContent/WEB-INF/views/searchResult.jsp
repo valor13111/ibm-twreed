@@ -8,50 +8,38 @@
 	<jsp:include page="../include/header.jsp" /> 
 <body>
 
-<table width="700px" align="center"
-               style="border:1px solid #000000;">
-            <tr>
-                <td colspan=4 align="center"
-                    style="background-color:teal">
-                    <b>Student Record</b></td>
-            </tr>
-            <tr style="background-color:lightgrey;">
-                <td><b>ID</b></td>
-                <td><b>First Name</b></td>
-                <td><b>Last Name</b></td>
-            </tr>
-            <%
-                int count = 0;
-                String color = "#F9EBB3";
-                if (request.getAttribute("sList") != null) {
-                    ArrayList al = (ArrayList) request.getAttribute("sList");
-                    System.out.println(al);
-                    Iterator itr = al.iterator();
-                    while (itr.hasNext()) {
- 
-                        if ((count % 2) == 0) {
-                            color = "#eeffee";
-                        }
-                        count++;
-                        ArrayList pList = (ArrayList) itr.next();
-            %>
-            <tr style="background-color:<%=color%>;">
-                <td><%=pList.get(0)%></td>
-                <td><%=pList.get(1)%></td>
-                <td><%=pList.get(2)%></td>
-            </tr>
-            <%
-                    }
-                }
-                if (count == 0) {
-            %>
-            <tr>
-                <td colspan=4 align="center"
-                    style="background-color:#eeffee"><b>No Record Found..</b></td>
-            </tr>
-            <%            }
-            %>
-        </table>
+<div class="container">
+	<div class="table-responsive">  
+		<h3 class="text-center">Student Record(s)</h3>
+		<table class="table">
+			<tr>
+				<td class="info"><b>ID</b></td>
+				<td class="info"><em>First Name</em></td>
+				<td class="info"><em>Last Name</em></td>
+			</tr>
+				<%
+				int count = 0;
+				if (request.getAttribute("sList") != null) {
+				    ArrayList studentList = (ArrayList) request.getAttribute("sList");
+				    Iterator itr = studentList.iterator();
+				    while (itr.hasNext()) {
+				        count++;
+				        ArrayList list = (ArrayList) itr.next();
+	
+				%>
+		    <tr>
+			    <td><%= list.get(0) %></td>
+			    <td><%= list.get(1) %></td>
+			    <td><%= list.get(2) %></td>
+		    </tr>
+		    <% 
+				    }
+				}
+			%>
+
+    </table>
+  </div>
+</div>
 
 </body>
 </html>

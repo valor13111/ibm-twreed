@@ -28,11 +28,15 @@ public class AddStudent extends HttpServlet {
      */
     public AddStudent() {
         super();
-        // TODO Auto-generated constructor stub
     }
 
 	/**
+	 * Forwards to addStudent.jsp.  Retrieves parameters from jsp file, and creates an
+	 * sql query to insert into database using the parameters.
+	 * 
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 * 
+	 * @throws ServletException, IOException
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.getRequestDispatcher("/WEB-INF/views/addStudent.jsp").forward(request, response);

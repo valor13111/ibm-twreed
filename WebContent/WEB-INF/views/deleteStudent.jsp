@@ -5,11 +5,11 @@
 	<jsp:include page="../include/header.jsp" /> 
 <body>
 
-<h1>Delete a Student by ID:</h1>
+<h2 class="text-center">Delete a Student by ID</h1>
 
 <form method="GET" action="ListStudent">
-	<div class="container">
-		<input type="text" placeholder="Enter a valid ID" name="studentid" />
+	<div class="container text-center">
+		<input type="number" placeholder="Enter a valid ID" name="studentid" required />
 		<input type="submit" value="Submit" class="btn btn-primary" name="submit" />
 	</div>
 </form>

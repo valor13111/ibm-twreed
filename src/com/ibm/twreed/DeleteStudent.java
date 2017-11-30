@@ -28,11 +28,15 @@ public class DeleteStudent extends HttpServlet {
      */
     public DeleteStudent() {
         super();
-        // TODO Auto-generated constructor stub
     }
 
 	/**
+	 * Forwards to deleteStudent.jsp, once the id parameter has been retrieved from the jsp file.
+	 * Creates query based on the id, and executes.
+	 * 
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 * 
+	 * @throws ServletException, IOException
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {		
 		Statement stmt = null;
@@ -47,7 +51,7 @@ public class DeleteStudent extends HttpServlet {
 	    	
 	    	stmt = conn.createStatement();
 	    	
-	    	// sql statement to execute
+	    	// sql statement to execute, int is wrapped with single quotes
 	    	String sql = "DELETE from STUDENT where idstudent = '" + studentId + "';";
 	    	
 	    	stmt.executeUpdate(sql);

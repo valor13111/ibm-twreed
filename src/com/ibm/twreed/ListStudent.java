@@ -29,11 +29,16 @@ public class ListStudent extends HttpServlet {
      */
     public ListStudent() {
         super();
-        // TODO Auto-generated constructor stub
     }
 
 	/**
+	 * Forwards to listStudent.jsp once connection is established, and the ResultSet is set.
+	 * Creates two ArrayLists; the first one 'list' houses the iteration through each ResultSet
+	 * as an ArrayList.
+	 * 
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 * 
+	 * @throws ServletException, IOException
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
@@ -47,6 +52,8 @@ public class ListStudent extends HttpServlet {
 			ArrayList list = null;
 			ArrayList listStudents = new ArrayList();
 			
+			// iterate through the ResultSet and add the parameters to list
+			// then add 'list' ArrayList to 'listStudents'
 			while (rs.next()) {
 				list = new ArrayList();
 				
@@ -61,6 +68,7 @@ public class ListStudent extends HttpServlet {
 				listStudents.add(list);
 			}
 			
+			// set attribute in listStudent.jsp with ArrayList 'listStudents'
 			request.setAttribute("sList", listStudents);
 			request.getRequestDispatcher("/WEB-INF/views/listStudent.jsp").forward(request, response);
 			
@@ -72,14 +80,6 @@ public class ListStudent extends HttpServlet {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-	}
-
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
 	}
 	
 	/**

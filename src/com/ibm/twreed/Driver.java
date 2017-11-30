@@ -4,8 +4,9 @@
 package com.ibm.twreed;
 
 /**
+ * Driver class hosts the database information to make connection.
+ * 
  * @author Tyler Reed
- *
  */
 public class Driver {
 	
@@ -18,35 +19,35 @@ public class Driver {
 	public Driver() {}
 
 	/**
-	 * @return the uRL
+	 * @return the URL
 	 */
 	protected String getURL() {
 		return URL;
 	}
 
 	/**
-	 * @return the dATABASE_NAME
+	 * @return the Database_Name
 	 */
 	protected String getDATABASE_NAME() {
 		return DATABASE_NAME;
 	}
 
 	/**
-	 * @return the dRIVER
+	 * @return the Driver
 	 */
 	protected String getDRIVER() {
 		return DRIVER;
 	}
 
 	/**
-	 * @return the uSERNAME
+	 * @return the Username
 	 */
 	protected String getUSERNAME() {
 		return USERNAME;
 	}
 
 	/**
-	 * @return the pASSWORD
+	 * @return the Password
 	 */
 	protected String getPASSWORD() {
 		return PASSWORD;

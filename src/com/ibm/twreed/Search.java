@@ -29,18 +29,27 @@ public class Search extends HttpServlet {
      */
     public Search() {
         super();
-        // TODO Auto-generated constructor stub
     }
 
 	/**
+	 * Forwards to search.jsp once page is loaded.
+	 * 
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-//		request.setAttribute("names", name);
 		request.getRequestDispatcher("/WEB-INF/views/search.jsp").forward(request, response);
 	}
 	
+	/**
+	 * Retrieves the 'name' from input form, which is named...'name'.  Establishes the connection, creates
+	 * the statement ready to execute the query.  Two ArrayLists are created; first as a new ArrayList
+	 * every time the ResultSet is looped, and the second as the final ArrayList consisting of all 
+	 * the ArrayLists created.  Now, each ArrayList is accessed through the student ArrayList.
+	 * 
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response
+	 * 
+	 * @throws ServletException, IOException
+	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {	
 		Statement stmt = null;
 		ResultSet rs = null;
@@ -59,10 +68,11 @@ public class Search extends HttpServlet {
 	    	
 	    	// sql statement to execute
 	    	String sql = "SELECT * from STUDENT where firstname = '" + name + "';";
-	    	System.out.println("queried: " + sql);
 	    	
+	    	// ResultSet executing query
 	    	rs = stmt.executeQuery(sql);
 	    	
+	    	// while going through query, declare ArrayList and add all fields to student ArrayList
 	    	while (rs.next()) {
 	    		al = new ArrayList();
 	    		
@@ -73,6 +83,7 @@ public class Search extends HttpServlet {
 	    		student.add(al);
 	    	}
 	    	
+	    	// set attribute in searchResult.jsp to the student ArrayList
 			request.setAttribute("sList", student);
 			request.getRequestDispatcher("/WEB-INF/views/searchResult.jsp").forward(request, response);
 
