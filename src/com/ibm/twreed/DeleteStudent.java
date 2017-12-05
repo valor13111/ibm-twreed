@@ -57,12 +57,12 @@ public class DeleteStudent extends HttpServlet {
 	    	stmt.executeUpdate(sql);
 
 	    	conn.close();	    	
+	    	
     	} catch(Exception e) {
     		System.err.println(e);
     	}	
 		
-		
-		request.getRequestDispatcher("/WEB-INF/views/deleteStudent.jsp").forward(request, response);
+		request.getRequestDispatcher("/WEB-INF/views/deleteStudent.jsp").forward(request, response);		
 	}
 	
 	/**

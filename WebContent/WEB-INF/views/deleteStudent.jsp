@@ -7,7 +7,7 @@
 
 <h2 class="text-center">Delete a Student by ID</h1>
 
-<form method="GET" action="ListStudent">
+<form method="GET" action="DeleteStudent">
 	<div class="container text-center">
 		<input type="number" placeholder="Enter a valid ID" name="studentid" required />
 		<input type="submit" value="Submit" class="btn btn-primary" name="submit" />
