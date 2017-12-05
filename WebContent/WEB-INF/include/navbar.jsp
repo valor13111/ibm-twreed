@@ -11,6 +11,7 @@
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
         <li class="active"><a href="/ibm-twreed/home">Home</a></li>
+        <li><a href="/ibm-twreed/ListStudent">Student List</a></li>
       </ul>
     </div>
   </div>
