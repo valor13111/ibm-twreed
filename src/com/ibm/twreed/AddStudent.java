@@ -42,7 +42,6 @@ public class AddStudent extends HttpServlet {
 		request.getRequestDispatcher("/WEB-INF/views/addStudent.jsp").forward(request, response);
 		
 		Statement stmt = null;
-		ResultSet rs = null;
 		
 		// retrieve parameters from form
 		String studentId = request.getParameter("studentid");
